@@ -1,10 +1,11 @@
 {
-  "name": "practice",
+  "name": "node-js-3",
   "version": "1.0.0",
   "description": "",
   "main": "index.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.mjs",
     "dev": "node --watch index.mjs"
   },
   "keywords": [],
@@ -12,7 +13,6 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
-    "express": "^4.18.2",
-    "path": "^0.12.7"
+    "express": "^4.18.2"
   }
 }
