@@ -11,20 +11,14 @@ const names = [
 
 // Get Api
 
-
-app.get("/", (req, res) => {
-    let names_div = ""
-    for (const name of names) {
-        names_div = names_div + `<h1>${name.name}</h1>`
-    }
-    res.send(names_div)
+router.get("/", (req, res) => {
+    res.status(200).send(names)
 }) 
 
 
 // Post Api
 
-
-app.post("/", (req, res) => {
+router.post("/", (req, res) => {
     const body = req.body
 
     try {
@@ -35,8 +29,8 @@ app.post("/", (req, res) => {
 
         else {
             names.push({ name: body.name })
-            console.log(body.name)
-            res.send("Working")
+            console.log(names)
+            res.send(names)
         }
     }
 
@@ -50,8 +44,7 @@ app.post("/", (req, res) => {
 
 // Delete Api
 
-
-app.delete("/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
     const id = req.params.id
 
     try {
@@ -82,14 +75,14 @@ app.delete("/:id", (req, res) => {
 // Put Api
 
 
-app.put("/:id", (req, res) => {
+router.put("/:id", (req, res) => {
     const id = req.params.id
     const name = req.body.name
 
     try {
         if (!id || !name) {
-            console.log("Missing required Params")
-            res.send("Missing required Params")
+            console.log("Missing required params")
+            res.send("Missing required params")
         }
 
         if (!names[id - 1]) { // Id - 1 will give us index number
